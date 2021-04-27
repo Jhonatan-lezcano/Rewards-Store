@@ -1,7 +1,52 @@
 import styled from "styled-components";
 
 export const HoverCard = styled.div`
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  padding: 0;
+  transition: opacity 0.5s ease;
+
+  .buy-white {
+    width: 40px;
+    position: absolute;
+    top: 11px;
+    right: 7px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .hover-info {
+    height: 100%;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .redeem {
+      display: flex;
+      align-items: center;
+
+      .points {
+        font-size: 36px;
+        color: #ffff;
+        padding-right: 10px;
+      }
+    }
+
+    .btn-redeem {
+      height: 42px;
+      width: 85%;
+      margin-top: 10px;
+      border: none;
+      border-radius: 20px;
+      background: #ffff;
+      font-size: 18px;
+    }
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -13,8 +58,9 @@ export const CardContainer = styled.div`
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   position: relative;
+  transition: all 0.4s ease;
 
-  .buy {
+  .buy-blue {
     width: 35px;
     position: absolute;
     top: 12px;
@@ -43,8 +89,13 @@ export const CardContainer = styled.div`
     }
   }
 
+  &:hover {
+    transform: translateY(-7px);
+  }
+
   &:hover ${HoverCard} {
-    display: flex;
+    visibility: visible;
+    opacity: 1;
     width: 276px;
     height: 276px;
     background: linear-gradient(
