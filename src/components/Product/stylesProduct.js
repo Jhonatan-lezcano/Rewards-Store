@@ -45,6 +45,7 @@ export const HoverCard = styled.div`
       border-radius: 20px;
       background: #ffff;
       font-size: 18px;
+      cursor: pointer;
     }
   }
 `;
@@ -56,7 +57,6 @@ export const CardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
   position: relative;
   transition: all 0.4s ease;
 
@@ -96,8 +96,8 @@ export const CardContainer = styled.div`
   &:hover ${HoverCard} {
     visibility: visible;
     opacity: 1;
-    width: 276px;
-    height: 276px;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(
       180deg,
       rgba(10, 212, 250, 0.86),
