@@ -1,16 +1,6 @@
 import styled from "styled-components";
 
 export const HoverCard = styled.div`
-  width: 276px;
-  height: 276px;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 212, 250, 0.86),
-    rgba(37, 187, 241, 0.86)
-  );
-  position: absolute;
-  top: 0;
-  left: 0;
   display: none;
 `;
 
@@ -51,5 +41,19 @@ export const CardContainer = styled.div`
     .product {
       font-weight: bold;
     }
+  }
+
+  &:hover ${HoverCard} {
+    display: flex;
+    width: 276px;
+    height: 276px;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 212, 250, 0.86),
+      rgba(37, 187, 241, 0.86)
+    );
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 `;

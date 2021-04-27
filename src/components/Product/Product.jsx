@@ -6,10 +6,11 @@ import buyBlue from "../../assets/icons/buy-blue.svg";
 const Product = () => {
   return (
     <div>
-      <CardContainer>
+      <CardContainer className="card-container">
         <div className="buy">
           <img src={buyBlue} alt="" />
         </div>
+        <HoverCard className="card-hover"></HoverCard>
         <div>
           <img src={imgProduct} alt="" />
         </div>
@@ -18,7 +19,6 @@ const Product = () => {
           <p className="category">Phones</p>
           <p className="product">!Phone 8</p>
         </div>
-        <HoverCard className="card-hover"></HoverCard>
       </CardContainer>
     </div>
   );
