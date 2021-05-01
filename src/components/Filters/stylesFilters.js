@@ -14,6 +14,27 @@ export const ContainerFilters = styled.div`
       color: #a3a3a3;
     }
   }
+
+  .buttons {
+    height: 45px;
+    display: flex;
+
+    button {
+      border: none;
+      background: none;
+      margin-left: 10px;
+      border-radius: 20px;
+    }
+
+    img {
+      height: 100%;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
 `;
 
 export const SelectCustom = styled.select`

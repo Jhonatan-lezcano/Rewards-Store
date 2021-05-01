@@ -71,6 +71,28 @@ export const CardContainer = styled.div`
     }
   }
 
+  .missing {
+    height: 42px;
+    width: 55%;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    background: rgba(97, 97, 97, 0.8);
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+
+    p {
+      color: #ffff;
+    }
+
+    img {
+      width: 30px;
+      margin-left: 5px;
+    }
+  }
+
   .contImgP {
     width: 90%;
 

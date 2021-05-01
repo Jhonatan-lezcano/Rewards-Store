@@ -1,19 +1,49 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { CardContainer, HoverCard } from "./stylesProduct";
-// import imgProduct from "../../assets/iPhone8-x1.png";
 import buyBlue from "../../assets/icons/buy-blue.svg";
 import buyWhite from "../../assets/icons/buy-white.svg";
 import coin from "../../assets/icons/coin.svg";
+import { UserContext } from "../../context/UserContext";
+import { useRedeem } from "../../hooks/useRedeem";
 
 const Product = (props) => {
-  const { name, cost, category, img } = props.info;
+  const { _id, name, cost, category, img } = props.info;
+  const { user, setUser } = useContext(UserContext);
+  const [productId, setProductId] = useState("");
+  useRedeem(productId);
+
+  const handleBuyNow = (e) => {
+    e.preventDefault();
+    const newPoints = {
+      _id: user._id,
+      name: user.name,
+      points: user.points - cost,
+      createDate: user.createDate,
+      __v: user.__v,
+      redeemHistory: user.redeemHistory,
+    };
+    setUser(newPoints);
+    setProductId(_id);
+  };
+
+  const handleRecharge = () => {
+    console.log("me hicieron click");
+  };
 
   return (
     <div>
       <CardContainer>
-        <div className="buy-blue">
-          <img src={buyBlue} alt="" />
-        </div>
+        {cost > user.points ? (
+          <div className="missing">
+            <p>Te faltan {cost - user.points}</p>
+            <img src={coin} alt="coin" />
+          </div>
+        ) : (
+          <div className="buy-blue">
+            <img src={buyBlue} alt="" />
+          </div>
+        )}
+
         <div className="contImgP">
           <img className="imgProduct" src={img.url} alt="" />
         </div>
@@ -28,9 +58,18 @@ const Product = (props) => {
           </div>
           <div className="hover-info">
             <div className="redeem">
-              <p className="points">{cost}</p> <img src={coin} alt="" />
+              <p className="points">{cost}</p>
+              <img src={coin} alt="" />
             </div>
-            <button className="btn-redeem">Redeem now</button>
+            {cost > user.points ? (
+              <button onClick={handleRecharge} className="btn-redeem">
+                Recargar puntos
+              </button>
+            ) : (
+              <button onClick={handleBuyNow} className="btn-redeem">
+                Comprar ahora
+              </button>
+            )}
           </div>
         </HoverCard>
       </CardContainer>

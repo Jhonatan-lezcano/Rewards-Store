@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ContainerFilters, Line, SelectCustom } from "./stylesFilters";
 import arrowLeft from "../../assets/icons/arrow-left.svg";
 import arrowRight from "../../assets/icons/arrow-right.svg";
+import { PaginationContext } from "../../context/PaginationContext";
 
 const Filters = () => {
+  const { changePageNext, changePagePrevious, pageNumber } = useContext(
+    PaginationContext
+  );
   return (
     <div className="container-filter">
       <ContainerFilters>
@@ -27,8 +31,18 @@ const Filters = () => {
           </SelectCustom>
         </div>
         <div className="buttons">
-          <img src={arrowLeft} alt="" />
-          <img src={arrowRight} alt="" />
+          <button
+            disabled={pageNumber === 0 ? true : false}
+            onClick={changePagePrevious}
+          >
+            <img src={arrowLeft} alt="atras" />
+          </button>
+          <button
+            disabled={pageNumber === 1 ? true : false}
+            onClick={changePageNext}
+          >
+            <img src={arrowRight} alt="siguiente" />
+          </button>
         </div>
       </ContainerFilters>
       <Line />

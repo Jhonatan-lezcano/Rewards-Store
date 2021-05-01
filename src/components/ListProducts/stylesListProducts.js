@@ -10,8 +10,31 @@ export const ContainerProducts = styled.div`
 export const InfoPaginator = styled.div`
   padding: 30px 0;
 
-  .infoPag {
-    margin-left: 85px;
-    margin-bottom: 25px;
+  .container-Pag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 85px;
+
+    .buttons {
+      height: 45px;
+      display: flex;
+
+      button {
+        border: none;
+        background: none;
+        margin-left: 10px;
+        border-radius: 20px;
+      }
+
+      img {
+        height: 100%;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
   }
 `;

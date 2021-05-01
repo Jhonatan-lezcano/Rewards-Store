@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import getUser from "../services/getUser";
+import { getUser } from "../services/services";
 
 export const UserContext = React.createContext();
 
@@ -13,7 +13,7 @@ export const UserProvider = (props) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user }}>
+    <UserContext.Provider value={{ user, setUser }}>
       {props.children}
     </UserContext.Provider>
   );
