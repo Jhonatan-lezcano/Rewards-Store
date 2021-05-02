@@ -3,13 +3,16 @@ import { Container } from "./headerStyles";
 import logo from "../../assets/icons/aerolab-logo.svg";
 import coin from "../../assets/icons/coin.svg";
 import { UserContext } from "../../context/UserContext";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const { user } = useContext(UserContext);
 
   return (
     <Container>
-      <img src={logo} alt="" />
+      <Link to="/">
+        <img src={logo} alt="" />
+      </Link>
       <div>
         <p>{user.name}</p>
         <div>

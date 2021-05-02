@@ -1,24 +1,42 @@
 import "./App.css";
-import Banner from "./components/Banner/Banner";
-import Filters from "./components/Filters/Filters";
 import Header from "./components/Header/Header";
-import ListProducts from "./components/ListProducts/ListProducts";
+import Home from "./components/layouts/Home/Home";
 import { PaginationProvider } from "./context/PaginationContext";
 import { ProductsProvider } from "./context/ProductsContext";
 import { UserProvider } from "./context/UserContext";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Recharge from "./components/layouts/Recharge/Recharge";
+import History from "./components/layouts/History/History";
+import Error from "./components/layouts/Error/Error";
 
 function App() {
   return (
     <div className="App">
       <UserProvider>
-        <Header />
-        <Banner />
-        <PaginationProvider>
-          <Filters />
-          <ProductsProvider>
-            <ListProducts />
-          </ProductsProvider>
-        </PaginationProvider>
+        <Router>
+          <Header />
+          <PaginationProvider>
+            <ProductsProvider>
+              <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+
+                <Route path="/recharge">
+                  <Recharge />
+                </Route>
+
+                <Route path="/history">
+                  <History />
+                </Route>
+
+                <Route>
+                  <Error />
+                </Route>
+              </Switch>
+            </ProductsProvider>
+          </PaginationProvider>
+        </Router>
       </UserProvider>
     </div>
   );

@@ -46,6 +46,16 @@ export const HoverCard = styled.div`
       background: #ffff;
       font-size: 18px;
       cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.4s ease;
+
+      &:hover {
+        background: #d9d9d9;
+        color: #ffff;
+      }
     }
   }
 `;
