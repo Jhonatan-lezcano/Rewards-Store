@@ -15,9 +15,6 @@ const Filters = () => {
         <div className="filters">
           <p>Sort by:</p>
           <SelectCustom name="" id="">
-            <option value="all">Mas recientes</option>
-          </SelectCustom>
-          <SelectCustom name="" id="">
             <option value="">Todos los precios</option>
             <option value="">precio 1</option>
             <option value="">precio 2</option>
@@ -29,6 +26,7 @@ const Filters = () => {
             <option value="">categoria 2</option>
             <option value="">categoria 3</option>
           </SelectCustom>
+          <button className="btn-clean-up">Limpiar</button>
         </div>
         <div className="buttons">
           <button

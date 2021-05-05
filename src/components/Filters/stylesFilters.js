@@ -10,6 +10,23 @@ export const ContainerFilters = styled.div`
     display: flex;
     align-items: center;
 
+    .btn-clean-up {
+      height: 40px;
+      width: 100px;
+      border: none;
+      border-radius: 5px;
+      background: rgba(37, 187, 241, 0.86);
+      color: #fff;
+      font-size: 18px;
+      margin-left: 24px;
+      transition: 0.5s ease;
+      cursor: pointer;
+
+      &:hover {
+        background: rgb(150, 172, 183);
+      }
+    }
+
     p {
       color: #a3a3a3;
     }

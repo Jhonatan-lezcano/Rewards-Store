@@ -50,7 +50,7 @@ export const HoverCard = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: 0.4s ease;
+      transition: background 0.4s ease;
 
       &:hover {
         background: #d9d9d9;
