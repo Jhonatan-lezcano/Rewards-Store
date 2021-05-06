@@ -10,9 +10,15 @@ const Header = () => {
 
   return (
     <Container>
-      <Link to="/">
-        <img src={logo} alt="" />
-      </Link>
+      <nav className="navigation">
+        <Link to="/">
+          <img className="logo" src={logo} alt="" />
+        </Link>
+        <Link className="history" to="/history">
+          Historial
+        </Link>
+      </nav>
+
       <div>
         <p>{user.name}</p>
         <div>

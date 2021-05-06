@@ -7,9 +7,32 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  img {
-    width: 38px;
-    height: 38px;
+  .navigation {
+    height: 100%;
+    width: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .history {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 18px;
+      height: 100%;
+      border-bottom: 4px solid transparent;
+      transition: all 0.4s ease;
+
+      &:hover {
+        color: rgba(37, 187, 241, 0.86);
+        transform: scale(1.1);
+      }
+    }
   }
 
   div {
