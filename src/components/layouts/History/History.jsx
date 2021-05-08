@@ -12,8 +12,22 @@ const History = () => {
   return (
     <div>
       <BannerHistory>
-        <h1 style={{ "text-align": "center" }}>Historial de compras</h1>
-        <p>Esperamos que estes disfrutando estos productos :) </p>
+        <div className="message-container">
+          <h1>Historial de compras</h1>
+          <p className="message">
+            Esperamos que estes disfrutando estos productos :)
+          </p>
+        </div>
+        <div className="bubbles">
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+          <div className="bubble"></div>
+        </div>
       </BannerHistory>
       <ContainerProducts>
         {history.map((item, index) => {
