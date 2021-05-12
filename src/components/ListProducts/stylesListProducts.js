@@ -38,3 +38,17 @@ export const InfoPaginator = styled.div`
     }
   }
 `;
+
+export const ModalBuys = styled.div`
+  box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.5);
+  width: 20%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  position: fixed;
+  bottom: 2%;
+  left: 1%;
+  background: white;
+  border-radius: 5px;
+`;

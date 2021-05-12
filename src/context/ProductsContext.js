@@ -9,9 +9,10 @@ export const ProductsProvider = (props) => {
 
   useEffect(() => {
     getProducts().then((products) => {
+      console.log(modal);
       setProducts(products);
     });
-  }, []);
+  }, [modal]);
 
   return (
     <ProductsContext.Provider value={{ products, setModal, modal }}>

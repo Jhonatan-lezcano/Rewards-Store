@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../../context/UserContext";
 import { ContainerProducts } from "../../ListProducts/stylesListProducts";
-import { ProductHistory, BannerHistory } from "./stylesHistory";
+import { ProductHistory, BannerRt } from "./stylesHistory";
 import coin from "../../../assets/icons/coin.svg";
 
 const History = () => {
@@ -11,7 +11,7 @@ const History = () => {
 
   return (
     <div>
-      <BannerHistory>
+      <BannerRt>
         <div className="message-container">
           <h1>Historial de compras</h1>
           <p className="message">
@@ -28,7 +28,7 @@ const History = () => {
           <div className="bubble"></div>
           <div className="bubble"></div>
         </div>
-      </BannerHistory>
+      </BannerRt>
       <ContainerProducts>
         {history.map((item, index) => {
           const { name, cost, category, img } = item;

@@ -6,7 +6,6 @@ export const PaginationProvider = (props) => {
   const [pageNumber, setPageNumber] = useState(0);
   const productsPerPage = 16;
   const pagesVisited = pageNumber * productsPerPage;
-  const display = null;
 
   const changePageNext = () => {
     setPageNumber(pageNumber + 1);
@@ -22,7 +21,6 @@ export const PaginationProvider = (props) => {
         productsPerPage,
         changePageNext,
         changePagePrevious,
-        display,
         pageNumber,
       }}
     >

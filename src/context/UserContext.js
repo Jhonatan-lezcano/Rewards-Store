@@ -11,9 +11,9 @@ export const UserProvider = (props) => {
     getUser().then((user) => {
       setUser(user);
       const { redeemHistory } = user;
-      setHistory(redeemHistory);
+      setHistory(redeemHistory.reverse());
     });
-  }, []);
+  }, [history]);
 
   return (
     <UserContext.Provider value={{ user, setUser, history }}>

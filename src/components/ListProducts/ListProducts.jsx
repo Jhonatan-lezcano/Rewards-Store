@@ -1,6 +1,10 @@
 import React, { useContext } from "react";
 import Product from "../Product/Product";
-import { ContainerProducts, InfoPaginator } from "./stylesListProducts";
+import {
+  ContainerProducts,
+  InfoPaginator,
+  ModalBuys,
+} from "./stylesListProducts";
 import { Line } from "../Filters/stylesFilters";
 import { ProductsContext } from "../../context/ProductsContext";
 import arrowLeft from "../../assets/icons/arrow-left.svg";
@@ -8,7 +12,7 @@ import arrowRight from "../../assets/icons/arrow-right.svg";
 import { PaginationContext } from "../../context/PaginationContext";
 
 const ListProducts = () => {
-  const { products } = useContext(ProductsContext);
+  const { products, modal } = useContext(ProductsContext);
   const {
     pagesVisited,
     productsPerPage,
@@ -49,6 +53,11 @@ const ListProducts = () => {
         </div>
         <Line></Line>
       </InfoPaginator>
+      {modal && (
+        <ModalBuys>
+          <p>La compra a sido exitosa</p>
+        </ModalBuys>
+      )}
     </div>
   );
 };

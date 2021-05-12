@@ -9,10 +9,14 @@ export const useRedeem = (id) => {
 
   useEffect(() => {
     if (id !== "") {
-      getRedeem(id);
-      setModal(true);
-    } else {
-      setModal(false);
+      getRedeem(id).then((res) => {
+        if (res !== {}) {
+          setModal(true);
+          setTimeout(() => {
+            setModal(false);
+          }, 4000);
+        }
+      });
     }
   }, [id, setModal]);
 };

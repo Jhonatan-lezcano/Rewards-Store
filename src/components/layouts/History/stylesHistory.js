@@ -17,8 +17,8 @@ const flotar = keyframes`
   }
 `;
 
-export const BannerHistory = styled.div`
-  width: 100%auto;
+export const BannerRt = styled.div`
+  width: 100%;
   height: 350px;
   background-image: linear-gradient(to top right, #e0eafc, #cfdef3);
   box-shadow: 2px 2px 4px -1px rgba(0, 0, 0, 0.25);
@@ -47,7 +47,7 @@ export const BannerHistory = styled.div`
       background: #fff;
       opacity: 0.7;
       position: absolute;
-      bottom: -150px;
+      bottom: -80px;
       animation: ${flotar} 3s linear infinite;
 
       &:nth-child(1) {

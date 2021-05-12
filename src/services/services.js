@@ -1,7 +1,7 @@
 export const headers = {
   "Content-Type": "application/json",
   Authorization:
-    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDg4YjNjYzc2NmZiNTAwMjRhYTg3YTYiLCJpYXQiOjE2MTk1NzE2NjB9.7196kR2-KgUVbhy63G5I7vsxZs68JSqgByBVIyNqLZM",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDljNTJmNzliNzc4MTAwMjA5YzVhOTUiLCJpYXQiOjE2MjA4NTc1OTF9.aCaa-p4_MCCJnEt4XH-vZsKBcADSb0K0GO7UVZJOiv4",
 };
 
 export function getUser() {
@@ -50,4 +50,20 @@ export const changePagePrevious = (setPageNumber, pageNumber) => {
   } else {
     setPageNumber(pageNumber - 1);
   }
+};
+
+export const setPoints = (amount) => {
+  const apiURL = `https://coding-challenge-api.aerolab.co/user/points`;
+
+  return fetch(apiURL, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({
+      amount,
+    }),
+  })
+    .then((res) => res.json())
+    .then((response) => {
+      return response;
+    });
 };
