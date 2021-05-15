@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { BannerRt } from "../History/stylesHistory";
-import { Play, Rules } from "./stylesRecharge";
+import { Play, Rules, Button } from "./stylesRecharge";
 import { data_questions } from "../../../data-questions";
+import { useLocation } from "react-router-dom";
 
 const Recharge = () => {
   const [posiblesRespuestas, setPosiblesRespuestas] = useState([]);
   const [pregunta, setPregunta] = useState([]);
   const [ejecutarEfecto, setEjecutarEfecto] = useState(false);
+  const [count, setCount] = useState(0);
+  const [display, setDisplay] = useState(false);
+  const [questionCounter, setQuestionCounter] = useState(0);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const select_id = (id) => {
     return document.getElementById(id);
@@ -23,54 +32,72 @@ const Recharge = () => {
     select_id("btn4"),
   ];
 
-  useEffect(() => {
+  const handlePlay = () => {
+    console.log("me hicieron click");
+    setDisplay(!display);
     setEjecutarEfecto(true);
-    if (ejecutarEfecto === true) {
-      const escogerPreguntaAleatoria = () => {
-        escogerPregunta(Math.floor(Math.random() * data_questions.length));
-      };
+  };
+  console.log(display);
+  console.log(ejecutarEfecto);
 
-      const escogerPregunta = (n) => {
-        let pregunta = data_questions[n];
-        setPregunta(pregunta);
-        select_id("category").innerHTML = pregunta.categoria;
-        select_id("question").innerHTML = pregunta.pregunta;
-        select_id("image").setAttribute("src", pregunta.imagen);
-        style("image").objectFit = pregunta.object_fit;
-        desordenarRespuestas(pregunta);
-        if (pregunta.imagen) {
-          style("image").height = "200px";
-          style("image").width = "100%";
-        } else {
-          style("image").height = "0px";
-          style("image").width = "0px";
-        }
-      };
+  useEffect(() => {
+    // setEjecutarEfecto(true);
+    if (questionCounter <= 4) {
+      if (ejecutarEfecto === true && display) {
+        const escogerPreguntaAleatoria = () => {
+          escogerPregunta(Math.floor(Math.random() * data_questions.length));
+        };
 
-      const desordenarRespuestas = (pregunta) => {
-        let posiblesRespuestas = [
-          pregunta.respuesta,
-          pregunta.incorrecta1,
-          pregunta.incorrecta2,
-          pregunta.incorrecta3,
-        ];
-        posiblesRespuestas.sort(() => Math.random() - 0.5);
+        const escogerPregunta = (n) => {
+          let pregunta = data_questions[n];
+          setPregunta(pregunta);
+          select_id("category").innerHTML = pregunta.categoria;
+          select_id("question").innerHTML = pregunta.pregunta;
+          select_id("image").setAttribute("src", pregunta.imagen);
+          style("image").objectFit = pregunta.object_fit;
+          desordenarRespuestas(pregunta);
+          if (pregunta.imagen) {
+            style("image").height = "200px";
+            style("image").width = "100%";
+          } else {
+            style("image").height = "0px";
+            style("image").width = "0px";
+            style("image").visibility = "hidden";
+          }
+        };
 
-        select_id("btn1").innerHTML = posiblesRespuestas[0];
-        select_id("btn2").innerHTML = posiblesRespuestas[1];
-        select_id("btn3").innerHTML = posiblesRespuestas[2];
-        select_id("btn4").innerHTML = posiblesRespuestas[3];
+        const desordenarRespuestas = (pregunta) => {
+          let posiblesRespuestas = [
+            pregunta.respuesta,
+            pregunta.incorrecta1,
+            pregunta.incorrecta2,
+            pregunta.incorrecta3,
+          ];
+          posiblesRespuestas.sort(() => Math.random() - 0.5);
 
-        setPosiblesRespuestas(posiblesRespuestas);
-      };
+          select_id("btn1").innerHTML = posiblesRespuestas[0];
+          select_id("btn2").innerHTML = posiblesRespuestas[1];
+          select_id("btn3").innerHTML = posiblesRespuestas[2];
+          select_id("btn4").innerHTML = posiblesRespuestas[3];
 
-      escogerPreguntaAleatoria();
+          setPosiblesRespuestas(posiblesRespuestas);
+        };
+
+        escogerPreguntaAleatoria();
+      }
+    } else {
+      setQuestionCounter(0);
+      setCount(0);
+      setDisplay(false);
+      setEjecutarEfecto(false);
     }
-  }, [ejecutarEfecto]);
+  }, [ejecutarEfecto, display]);
 
   const handleResponse = (i) => {
+    setQuestionCounter(questionCounter + 1);
     if (posiblesRespuestas[i] === pregunta.respuesta) {
       btns[i].style.background = "lightgreen";
+      setCount(count + 1);
     } else {
       btns[i].style.background = "pink";
     }
@@ -94,8 +121,22 @@ const Recharge = () => {
     });
   };
 
+  const styleHeader = () => {
+    if (pregunta.categoria === "Historia") {
+      return `header historia`;
+    } else if (pregunta.categoria === "Matemática") {
+      return `header matematicas`;
+    } else {
+      return `header`;
+    }
+  };
+
+  console.log(styleHeader());
+  console.log(count);
+  console.log(questionCounter);
+
   return (
-    <div>
+    <div className="containerRecharge">
       <BannerRt>
         <div className="message-container">
           <h1>Recarga puntos</h1>
@@ -142,22 +183,45 @@ const Recharge = () => {
           correcta, ganas <strong>0</strong> puntos 😟.
         </p>
       </Rules>
-      <Play>
-        <div className="header">
-          <div className="category" id="category">
-            category
-          </div>
-          <div className="question" id="question">
-            question
-          </div>
-          <img className="image " src="" id="image" />
-        </div>
 
-        <div className="btn" id="btn1" onClick={() => handleResponse(0)}></div>
-        <div className="btn" id="btn2" onClick={() => handleResponse(1)}></div>
-        <div className="btn" id="btn3" onClick={() => handleResponse(2)}></div>
-        <div className="btn" id="btn4" onClick={() => handleResponse(3)}></div>
-      </Play>
+      {display ? (
+        <Play>
+          <div className="header">
+            <div className="category" id="category">
+              category
+            </div>
+            <div className="question" id="question">
+              question
+            </div>
+            <img className="image " src="" id="image" />
+          </div>
+
+          <div
+            className="btn"
+            id="btn1"
+            onClick={() => handleResponse(0)}
+          ></div>
+          <div
+            className="btn"
+            id="btn2"
+            onClick={() => handleResponse(1)}
+          ></div>
+          <div
+            className="btn"
+            id="btn3"
+            onClick={() => handleResponse(2)}
+          ></div>
+          <div
+            className="btn"
+            id="btn4"
+            onClick={() => handleResponse(3)}
+          ></div>
+        </Play>
+      ) : (
+        <div className="btn-empezar-juego">
+          <Button onClick={handlePlay}>Empezar juego</Button>
+        </div>
+      )}
     </div>
   );
 };

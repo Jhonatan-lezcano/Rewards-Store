@@ -16,12 +16,8 @@ const Product = (props) => {
   const handleBuyNow = (e) => {
     e.preventDefault();
     const newPoints = {
-      _id: user._id,
-      name: user.name,
+      ...user,
       points: user.points - cost,
-      createDate: user.createDate,
-      __v: user.__v,
-      redeemHistory: user.redeemHistory,
     };
     setUser(newPoints);
     setProductId(_id);

@@ -5,18 +5,15 @@ export const UserContext = React.createContext();
 
 export const UserProvider = (props) => {
   const [user, setUser] = useState({});
-  const [history, setHistory] = useState([]);
 
   useEffect(() => {
     getUser().then((user) => {
       setUser(user);
-      const { redeemHistory } = user;
-      setHistory(redeemHistory.reverse());
     });
-  }, [history]);
+  }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser, history }}>
+    <UserContext.Provider value={{ user, setUser }}>
       {props.children}
     </UserContext.Provider>
   );

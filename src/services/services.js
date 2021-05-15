@@ -40,6 +40,16 @@ export const getRedeem = (id) => {
     });
 };
 
+export const getHistory = () => {
+  const apiURL = `https://coding-challenge-api.aerolab.co/user/history`;
+
+  return fetch(apiURL, { headers })
+    .then((res) => res.json())
+    .then((response) => {
+      return response;
+    });
+};
+
 export const changePageNext = (setPageNumber, pageNumber) => {
   setPageNumber(pageNumber + 1);
 };

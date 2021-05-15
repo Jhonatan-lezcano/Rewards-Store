@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
-import { UserContext } from "../../../context/UserContext";
+import React, { useEffect, useState } from "react";
 import { ContainerProducts } from "../../ListProducts/stylesListProducts";
 import { ProductHistory, BannerRt } from "./stylesHistory";
 import coin from "../../../assets/icons/coin.svg";
+import { getHistory } from "../../../services/services";
 
 const History = () => {
-  const { history } = useContext(UserContext);
+  const [history, setHistory] = useState([]);
 
-  console.log(history);
+  useEffect(() => {
+    getHistory().then((response) => {
+      setHistory(response.reverse());
+    });
+  }, []);
 
   return (
     <div>
