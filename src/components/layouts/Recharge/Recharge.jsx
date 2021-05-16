@@ -1,21 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { BannerRt } from "../History/stylesHistory";
-import { Play, Rules, Button } from "./stylesRecharge";
+import { Play, Rules, Button, InfoModal } from "./stylesRecharge";
 import { data_questions } from "../../../data-questions";
 import { useLocation } from "react-router-dom";
+import { Line } from "../../Filters/stylesFilters";
+import Modal from "../../Modals/Modal";
+import AnimationModal from "../../Animations/AnimationModal";
+import AnimationModalSad from "../../Animations/AnimationModalSad";
 
 const Recharge = () => {
   const [posiblesRespuestas, setPosiblesRespuestas] = useState([]);
   const [pregunta, setPregunta] = useState([]);
   const [ejecutarEfecto, setEjecutarEfecto] = useState(false);
-  const [count, setCount] = useState(0);
+  const [countCorrect, setCountCorrect] = useState(0);
   const [display, setDisplay] = useState(false);
+  const [active, setActive] = useState(false);
   const [questionCounter, setQuestionCounter] = useState(0);
   const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  const toggle = () => {
+    setActive(!active);
+    setCountCorrect(0);
+  };
 
   const select_id = (id) => {
     return document.getElementById(id);
@@ -41,7 +51,6 @@ const Recharge = () => {
   console.log(ejecutarEfecto);
 
   useEffect(() => {
-    // setEjecutarEfecto(true);
     if (questionCounter <= 4) {
       if (ejecutarEfecto === true && display) {
         const escogerPreguntaAleatoria = () => {
@@ -59,6 +68,7 @@ const Recharge = () => {
           if (pregunta.imagen) {
             style("image").height = "200px";
             style("image").width = "100%";
+            style("image").visibility = "visible";
           } else {
             style("image").height = "0px";
             style("image").width = "0px";
@@ -87,9 +97,9 @@ const Recharge = () => {
       }
     } else {
       setQuestionCounter(0);
-      setCount(0);
       setDisplay(false);
       setEjecutarEfecto(false);
+      setActive(true);
     }
   }, [ejecutarEfecto, display]);
 
@@ -97,7 +107,7 @@ const Recharge = () => {
     setQuestionCounter(questionCounter + 1);
     if (posiblesRespuestas[i] === pregunta.respuesta) {
       btns[i].style.background = "lightgreen";
-      setCount(count + 1);
+      setCountCorrect(countCorrect + 1);
     } else {
       btns[i].style.background = "pink";
     }
@@ -121,18 +131,19 @@ const Recharge = () => {
     });
   };
 
-  const styleHeader = () => {
-    if (pregunta.categoria === "Historia") {
-      return `header historia`;
-    } else if (pregunta.categoria === "Matemática") {
-      return `header matematicas`;
+  const handlePoints = () => {
+    if (countCorrect === 5) {
+      return `7.500`;
+    } else if (countCorrect === 4) {
+      return `5.000`;
+    } else if (countCorrect === 2 || countCorrect === 3) {
+      return `1.000`;
     } else {
-      return `header`;
+      return `0`;
     }
   };
 
-  console.log(styleHeader());
-  console.log(count);
+  console.log(countCorrect);
   console.log(questionCounter);
 
   return (
@@ -187,9 +198,15 @@ const Recharge = () => {
       {display ? (
         <Play>
           <div className="header">
-            <div className="category" id="category">
-              category
+            <div className="category-count">
+              <div className="category" id="category">
+                category
+              </div>
+              <p className="category">
+                {countCorrect}/{questionCounter}
+              </p>
             </div>
+
             <div className="question" id="question">
               question
             </div>
@@ -222,6 +239,30 @@ const Recharge = () => {
           <Button onClick={handlePlay}>Empezar juego</Button>
         </div>
       )}
+      <Line></Line>
+      <Modal active={active} toggle={toggle}>
+        <InfoModal>
+          {countCorrect > 1 ? (
+            <div className="cont-img">
+              <AnimationModal />
+              <h1>Felicitaciones 🤑🥳 </h1>
+            </div>
+          ) : (
+            <div className="cont-img">
+              <AnimationModalSad />
+              <h1>Lo sentimos 😥</h1>
+            </div>
+          )}
+
+          <div className="line"></div>
+          <p>
+            acabas de ganar <strong>{handlePoints()}</strong> puntos
+          </p>
+          <button onClick={toggle} className="btn-aceptar">
+            Aceptar
+          </button>
+        </InfoModal>
+      </Modal>
     </div>
   );
 };

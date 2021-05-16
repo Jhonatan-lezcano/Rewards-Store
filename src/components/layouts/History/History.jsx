@@ -3,6 +3,7 @@ import { ContainerProducts } from "../../ListProducts/stylesListProducts";
 import { ProductHistory, BannerRt } from "./stylesHistory";
 import coin from "../../../assets/icons/coin.svg";
 import { getHistory } from "../../../services/services";
+import { Line } from "../../Filters/stylesFilters";
 
 const History = () => {
   const [history, setHistory] = useState([]);
@@ -54,6 +55,9 @@ const History = () => {
           );
         })}
       </ContainerProducts>
+      <br />
+      <br />
+      <Line></Line>
     </div>
   );
 };

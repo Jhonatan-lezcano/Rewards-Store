@@ -1,9 +1,11 @@
 import React from "react";
+import ReactTooltip from "react-tooltip";
 import { FooterContainer } from "./footerStyles";
+import Github from "../../assets/icons/github-sign.svg";
+import Linkedin from "../../assets/icons/linkedin-sign.svg";
 
 const Footer = () => {
   const redirectGithub = () => {
-    //window.location.assign("https://github.com/Jhonatan-lezcano");
     window.open("https://github.com/Jhonatan-lezcano");
   };
 
@@ -11,9 +13,6 @@ const Footer = () => {
     window.open(
       "https://www.linkedin.com/in/jhonatan-lezcano-s%C3%A1nchez-b0a7631a9/"
     );
-    // window.location.assign(
-    //   "https://www.linkedin.com/in/jhonatan-lezcano-s%C3%A1nchez-b0a7631a9/"
-    // );
   };
 
   return (
@@ -24,17 +23,19 @@ const Footer = () => {
       </p>
       <div className="networks">
         <img
+          src={Github}
           alt="github"
           onClick={redirectGithub}
-          // data-tip="GitHub"
+          data-tip="GitHub"
         />
-        {/* <ReactTooltip place="top" type="light" effect="solid" /> */}
+        <ReactTooltip place="top" effect="solid" />
         <img
+          src={Linkedin}
           alt="linkedin"
           onClick={redirectLinkedin}
-          // data-tip="LinkedIn"
+          data-tip="LinkedIn"
         />
-        {/* <ReactTooltip place="top" type="light" effect="solid" /> */}
+        <ReactTooltip place="top" effect="solid" />
       </div>
     </FooterContainer>
   );

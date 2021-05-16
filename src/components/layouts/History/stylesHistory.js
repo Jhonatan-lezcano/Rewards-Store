@@ -55,7 +55,7 @@ export const BannerRt = styled.div`
         height: 70px;
         left: 5%;
         animation-duration: 3s;
-        animation-delay: 3s;
+        animation-delay: 2s;
       }
 
       &:nth-child(2) {
@@ -78,7 +78,7 @@ export const BannerRt = styled.div`
         width: 60px;
         height: 60px;
         left: 50%;
-        animation-duration: 3s;
+        animation-duration: 1.5s;
         animation-delay: 4s;
       }
 
@@ -95,7 +95,7 @@ export const BannerRt = styled.div`
         height: 55px;
         left: 90%;
         animation-duration: 2s;
-        animation-delay: 3s;
+        animation-delay: 2s;
       }
 
       &:nth-child(7) {
@@ -103,7 +103,7 @@ export const BannerRt = styled.div`
         height: 15px;
         left: 75%;
         animation-duration: 2s;
-        animation-delay: 4s;
+        animation-delay: 1s;
       }
 
       &:nth-child(8) {
@@ -111,7 +111,7 @@ export const BannerRt = styled.div`
         height: 25px;
         left: 55%;
         animation-duration: 2s;
-        animation-delay: 5s;
+        animation-delay: 4s;
       }
     }
   }

@@ -8,7 +8,7 @@ export const ContainerProducts = styled.div`
 `;
 
 export const InfoPaginator = styled.div`
-  padding: 30px 0;
+  padding: 30px 0 0px 0;
 
   .container-Pag {
     display: flex;
@@ -45,10 +45,15 @@ export const ModalBuys = styled.div`
   height: 70px;
   display: flex;
   align-items: center;
+  justify-content: space-around;
   font-size: 18px;
   position: fixed;
   bottom: 2%;
   left: 1%;
   background: white;
   border-radius: 5px;
+  padding: 0 15px;
+  img {
+    width: 20px;
+  }
 `;

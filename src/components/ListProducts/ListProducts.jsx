@@ -10,6 +10,7 @@ import { ProductsContext } from "../../context/ProductsContext";
 import arrowLeft from "../../assets/icons/arrow-left.svg";
 import arrowRight from "../../assets/icons/arrow-right.svg";
 import { PaginationContext } from "../../context/PaginationContext";
+import Checked from "../../assets/icons/checked.svg";
 
 const ListProducts = () => {
   const { products, modal } = useContext(ProductsContext);
@@ -55,6 +56,7 @@ const ListProducts = () => {
       </InfoPaginator>
       {modal && (
         <ModalBuys>
+          <img src={Checked} alt="checked" />
           <p>La compra a sido exitosa</p>
         </ModalBuys>
       )}

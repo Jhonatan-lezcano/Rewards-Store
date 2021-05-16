@@ -46,9 +46,14 @@ export const Play = styled.div`
     margin-bottom: 5px;
     border-radius: 5px;
 
-    .category {
-      opacity: 0.4;
-      text-align: left;
+    .category-count {
+      display: flex;
+      justify-content: space-between;
+
+      .category {
+        opacity: 0.6;
+        text-align: left;
+      }
     }
 
     .question {
@@ -84,14 +89,59 @@ export const Button = styled.button`
   width: 150px;
   height: 45px;
   border: none;
-  background: lightblue;
+  background: #4361ee;
   border-radius: 5px;
   font-size: 18px;
   cursor: pointer;
   transition: 0.5s ease;
+  color: #fff;
 
   &:hover {
-    background: lightgray;
-    color: #fff;
+    background: #4895ef;
+  }
+`;
+
+export const InfoModal = styled.div`
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .cont-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-family: "Newsreader", serif;
+    }
+  }
+
+  .line {
+    border: 1px solid #76c893;
+    width: 50%;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  .btn-aceptar {
+    height: 45px;
+    width: 150px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    background: #76c893;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    margin: 20px 0;
+
+    &:hover {
+      background: #40916c;
+    }
   }
 `;
