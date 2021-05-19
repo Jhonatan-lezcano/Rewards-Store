@@ -23,7 +23,7 @@ function App() {
                   <Home />
                 </Route>
 
-                <Route path="/Reward-Store">
+                <Route path="/Rewards-Store">
                   <Home />
                 </Route>
 
