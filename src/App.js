@@ -31,7 +31,7 @@ function App() {
                   <History />
                 </Route>
 
-                <Route>
+                <Route path="*">
                   <Error />
                 </Route>
               </Switch>
