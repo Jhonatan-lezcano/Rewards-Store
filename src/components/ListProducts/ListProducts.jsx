@@ -13,7 +13,7 @@ import { PaginationContext } from "../../context/PaginationContext";
 import Checked from "../../assets/icons/checked.svg";
 
 const ListProducts = () => {
-  const { products, modal } = useContext(ProductsContext);
+  const { filteredList, modal } = useContext(ProductsContext);
   const {
     pagesVisited,
     productsPerPage,
@@ -22,7 +22,7 @@ const ListProducts = () => {
     pageNumber,
   } = useContext(PaginationContext);
 
-  const displayProducts = products
+  const displayProducts = filteredList
     .slice(pagesVisited, pagesVisited + productsPerPage)
     .map((product) => {
       return <Product key={product._id} info={product} />;

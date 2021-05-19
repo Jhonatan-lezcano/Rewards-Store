@@ -14,7 +14,10 @@ const Header = () => {
         <Link to="/">
           <img className="logo" src={logo} alt="" />
         </Link>
-        <Link className="history" to="/history">
+        <Link className="links" to="/">
+          productos
+        </Link>
+        <Link className="links" to="/history">
           Historial
         </Link>
       </nav>

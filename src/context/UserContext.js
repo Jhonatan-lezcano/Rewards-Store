@@ -10,7 +10,7 @@ export const UserProvider = (props) => {
     getUser().then((user) => {
       setUser(user);
     });
-  }, []);
+  }, [user]);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

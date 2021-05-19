@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { getRedeem } from "../services/services";
+import { setRedeem } from "../services/services";
 import { ProductsContext } from "../context/ProductsContext";
 
 // const apiURL = `https://coding-challenge-api.aerolab.co/redeem`;
@@ -9,7 +9,7 @@ export const useRedeem = (id) => {
 
   useEffect(() => {
     if (id !== "") {
-      getRedeem(id).then((res) => {
+      setRedeem(id).then((res) => {
         if (res !== {}) {
           setModal(true);
           setTimeout(() => {

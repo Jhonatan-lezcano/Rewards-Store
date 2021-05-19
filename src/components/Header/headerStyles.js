@@ -9,7 +9,6 @@ export const Container = styled.div`
 
   .navigation {
     height: 100%;
-    width: 15%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,15 +16,22 @@ export const Container = styled.div`
     .logo {
       width: 40px;
       height: 40px;
+      margin-right: 15px;
+      transition: all 0.4s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
 
-    .history {
+    .links {
       display: flex;
       align-items: center;
       text-decoration: none;
       font-size: 18px;
       height: 100%;
       border-bottom: 4px solid transparent;
+      margin-right: 15px;
       transition: all 0.4s ease;
 
       &:hover {
@@ -38,7 +44,6 @@ export const Container = styled.div`
   div {
     display: flex;
     font-size: 20px;
-    width: 16%;
     justify-content: center;
     align-items: center;
 
@@ -48,8 +53,8 @@ export const Container = styled.div`
       justify-content: center;
       align-items: center;
       background: #ededed;
-      width: 45%;
       border-radius: 20px;
+      padding: 2px 8px;
 
       img {
         margin-left: 5px;

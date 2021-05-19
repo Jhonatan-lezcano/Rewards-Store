@@ -24,7 +24,7 @@ export function getProducts() {
     });
 }
 
-export const getRedeem = (id) => {
+export const setRedeem = (id) => {
   const apiURL = `https://coding-challenge-api.aerolab.co/redeem`;
 
   return fetch(apiURL, {

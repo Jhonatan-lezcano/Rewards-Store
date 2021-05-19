@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerProducts = styled.div`
-  padding: 30px 85px;
+  padding: 30px 6.5%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;

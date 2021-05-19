@@ -1,45 +1,65 @@
 import React, { useEffect, useState } from "react";
 import { BannerRt } from "../History/stylesHistory";
 import { Rules, Button, InfoModal } from "./stylesRecharge";
-
 import { useLocation } from "react-router-dom";
 import { Line } from "../../Filters/stylesFilters";
 import Modal from "../../Modals/Modal";
 import AnimationModal from "../../Animations/AnimationModal";
 import AnimationModalSad from "../../Animations/AnimationModalSad";
 import Game from "../../Game/Game";
+import { setPoints } from "../../../services/services";
+// import UserContext from '../../../context/UserContext'
 
 const Recharge = () => {
   const [ejecutarEfecto, setEjecutarEfecto] = useState(false);
   const [countCorrect, setCountCorrect] = useState(0);
   const [display, setDisplay] = useState(false);
   const [active, setActive] = useState(false);
+  const [amount, setAmount] = useState(0);
   const { pathname } = useLocation();
+  const POINTS_5Q = 7500;
+  const POINTS_4Q = 5000;
+  const POINTS_2_3Q = 1000;
+  const POINTS_0_1Q = 0;
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  useEffect(() => {
+    if (countCorrect === 5) {
+      setAmount(POINTS_5Q);
+    } else if (countCorrect === 4) {
+      setAmount(POINTS_4Q);
+    } else if (countCorrect === 2 || countCorrect === 3) {
+      setAmount(POINTS_2_3Q);
+    } else {
+      setAmount(POINTS_0_1Q);
+    }
+  }, [countCorrect]);
+
   const toggle = () => {
     setActive(!active);
-    setCountCorrect(0);
+    setPoints(amount);
+    setTimeout(() => {
+      setCountCorrect(0);
+    }, 1000);
   };
 
   const handlePlay = () => {
-    console.log("me hicieron click");
     setDisplay(!display);
     setEjecutarEfecto(true);
   };
 
   const handlePoints = () => {
     if (countCorrect === 5) {
-      return `7.500`;
+      return POINTS_5Q;
     } else if (countCorrect === 4) {
-      return `5.000`;
+      return POINTS_4Q;
     } else if (countCorrect === 2 || countCorrect === 3) {
-      return `1.000`;
+      return POINTS_2_3Q;
     } else {
-      return `0`;
+      return POINTS_0_1Q;
     }
   };
 
