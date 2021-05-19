@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/Rewards-Store/static/css/main.ea622fae.chunk.css",
+    "main.js": "/Rewards-Store/static/js/main.0a7c96ef.chunk.js",
+    "main.js.map": "/Rewards-Store/static/js/main.0a7c96ef.chunk.js.map",
+    "runtime-main.js": "/Rewards-Store/static/js/runtime-main.d16f4883.js",
+    "runtime-main.js.map": "/Rewards-Store/static/js/runtime-main.d16f4883.js.map",
+    "static/js/2.9dbb1cfd.chunk.js": "/Rewards-Store/static/js/2.9dbb1cfd.chunk.js",
+    "static/js/2.9dbb1cfd.chunk.js.map": "/Rewards-Store/static/js/2.9dbb1cfd.chunk.js.map",
+    "static/js/3.fd811cba.chunk.js": "/Rewards-Store/static/js/3.fd811cba.chunk.js",
+    "static/js/3.fd811cba.chunk.js.map": "/Rewards-Store/static/js/3.fd811cba.chunk.js.map",
+    "index.html": "/Rewards-Store/index.html",
+    "static/css/main.ea622fae.chunk.css.map": "/Rewards-Store/static/css/main.ea622fae.chunk.css.map",
+    "static/js/2.9dbb1cfd.chunk.js.LICENSE.txt": "/Rewards-Store/static/js/2.9dbb1cfd.chunk.js.LICENSE.txt",
+    "static/media/aerolab-logo.0a8fb170.svg": "/Rewards-Store/static/media/aerolab-logo.0a8fb170.svg",
+    "static/media/arrow-left.e6eb9be1.svg": "/Rewards-Store/static/media/arrow-left.e6eb9be1.svg",
+    "static/media/arrow-right.3306c112.svg": "/Rewards-Store/static/media/arrow-right.3306c112.svg",
+    "static/media/buy-blue.c5c4f01c.svg": "/Rewards-Store/static/media/buy-blue.c5c4f01c.svg",
+    "static/media/buy-white.9b6e6567.svg": "/Rewards-Store/static/media/buy-white.9b6e6567.svg",
+    "static/media/checked.08385652.svg": "/Rewards-Store/static/media/checked.08385652.svg",
+    "static/media/close.17a94979.svg": "/Rewards-Store/static/media/close.17a94979.svg",
+    "static/media/coin.b8bc711d.svg": "/Rewards-Store/static/media/coin.b8bc711d.svg",
+    "static/media/github-sign.d154cf7d.svg": "/Rewards-Store/static/media/github-sign.d154cf7d.svg",
+    "static/media/header.b6f067c6.png": "/Rewards-Store/static/media/header.b6f067c6.png",
+    "static/media/linkedin-sign.3d172ec5.svg": "/Rewards-Store/static/media/linkedin-sign.3d172ec5.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d16f4883.js",
+    "static/js/2.9dbb1cfd.chunk.js",
+    "static/css/main.ea622fae.chunk.css",
+    "static/js/main.0a7c96ef.chunk.js"
+  ]
+}
