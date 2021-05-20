@@ -28,7 +28,7 @@ const Filters = () => {
           </SelectCustom>
           <SelectCustom value={category} onChange={handleCategory}>
             <option value="all" disabled>
-              Todos las categorias
+              Todas las categorias
             </option>
             <option value="Laptops">Laptops</option>
             <option value="Cameras">Cameras</option>
