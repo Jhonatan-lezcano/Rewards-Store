@@ -18,7 +18,7 @@ function App() {
           <PaginationProvider>
             <ProductsProvider>
               <Switch>
-                <Route exact path="/">
+                <Route exact path="/home">
                   <Home />
                 </Route>
 
