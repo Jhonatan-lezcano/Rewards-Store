@@ -7,7 +7,6 @@ import { UserProvider } from "./context/UserContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Recharge from "./components/layouts/Recharge/Recharge";
 import History from "./components/layouts/History/History";
-// import Error from "./components/layouts/Error/Error";
 import Footer from "./components/Footer/Footer";
 
 function App() {
@@ -30,10 +29,6 @@ function App() {
                 <Route path="/history">
                   <History />
                 </Route>
-
-                {/* <Route path="*">
-                  <Error />
-                </Route> */}
               </Switch>
             </ProductsProvider>
           </PaginationProvider>
