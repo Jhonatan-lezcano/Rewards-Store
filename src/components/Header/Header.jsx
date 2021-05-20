@@ -11,10 +11,10 @@ const Header = () => {
   return (
     <Container>
       <nav className="navigation">
-        <Link to="/">
+        <Link to="/Rewards-Store">
           <img className="logo" src={logo} alt="" />
         </Link>
-        <Link className="links" to="/">
+        <Link className="links" to="/Rewards-Store">
           productos
         </Link>
         <Link className="links" to="/history">
