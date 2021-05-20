@@ -19,7 +19,7 @@ function App() {
           <PaginationProvider>
             <ProductsProvider>
               <Switch>
-                <Route exat path="/">
+                <Route exact path="/">
                   <Home />
                 </Route>
 
