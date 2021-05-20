@@ -17,6 +17,18 @@ const flotar = keyframes`
   }
 `;
 
+const movimiento = keyframes`
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(30px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+`;
+
 export const BannerRt = styled.div`
   width: 100%;
   height: 350px;
@@ -28,11 +40,11 @@ export const BannerRt = styled.div`
   position: relative;
   margin-bottom: 50px;
 
-  h1 {
-    font-size: 40px;
-  }
-
   .message-container {
+    animation: ${movimiento} 2.5s linear infinite;
+    h1 {
+      font-size: 40px;
+    }
     .message {
       font-size: 30px;
       color: #a3a3a3;

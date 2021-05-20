@@ -15,7 +15,7 @@ const History = () => {
   }, []);
 
   return (
-    <div>
+    <div className="animated fadeIn">
       <BannerRt>
         <div className="message-container">
           <h1>Historial de compras</h1>

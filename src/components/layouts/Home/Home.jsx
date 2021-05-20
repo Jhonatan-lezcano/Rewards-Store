@@ -5,7 +5,7 @@ import ListProducts from "../../ListProducts/ListProducts";
 
 const Home = () => {
   return (
-    <div>
+    <div className="animated fadeIn">
       <Banner />
       <Filters />
       <ListProducts />

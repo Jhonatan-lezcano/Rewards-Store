@@ -1,4 +1,3 @@
-import "./App.css";
 import Header from "./components/Header/Header";
 import Home from "./components/layouts/Home/Home";
 import { PaginationProvider } from "./context/PaginationContext";
@@ -11,7 +10,7 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <UserProvider>
         <Router>
           <Header />

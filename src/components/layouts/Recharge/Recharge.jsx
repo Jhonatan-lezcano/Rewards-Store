@@ -64,7 +64,7 @@ const Recharge = () => {
   };
 
   return (
-    <div className="containerRecharge">
+    <div className="containerRecharge animated fadeIn">
       <BannerRt>
         <div className="message-container">
           <h1>Recarga puntos</h1>
