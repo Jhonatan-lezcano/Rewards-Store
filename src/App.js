@@ -18,14 +18,12 @@ function App() {
           <PaginationProvider>
             <ProductsProvider>
               <Switch>
-                <Route exact path="/home">
+                <Route exact path="/">
                   <Home />
                 </Route>
-
                 <Route path="/recharge">
                   <Recharge />
                 </Route>
-
                 <Route path="/history">
                   <History />
                 </Route>
