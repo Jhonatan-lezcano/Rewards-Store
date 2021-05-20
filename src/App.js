@@ -18,7 +18,10 @@ function App() {
           <PaginationProvider>
             <ProductsProvider>
               <Switch>
-                <Route exact path="/">
+                <Route path="/">
+                  <Home />
+                </Route>
+                <Route path="/Rewards-Store">
                   <Home />
                 </Route>
                 <Route path="/recharge">
